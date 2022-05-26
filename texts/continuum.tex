@@ -1,0 +1,36 @@
+\section{Continuum Approximation}
+
+For a large $k$, we can assume $p_k$ is continuous, such that $p_k \approx p_{k-1}$ and \[
+    \dv{p_k}{k} \approx \frac{p_k - p_{k-1}}{k - (k-1)} = p_k - p_{k-1}
+\]
+
+Therefore, \cref{eq:stable} can be approximated by the following differential equation
+\begin{align*}
+    (p - 2) p_{k-1} \approx (p - 2) p_k &= (k + p + 1 - k p) \dv{p_k}{k} \\
+        \frac{1}{k + p + 1 - k p} &= \frac{1}{(p - 2) p_k} \dv{p_k}{k} \\
+        \int \frac{1}{k + p + 1 - k p} \dd{k} &= \frac{1}{(p - 2)} \int \frac{1}{p_k} \dv{p_k}{k} \dd{k} \\
+        \frac{\ln\left(k + p + 1 - k p\right)}{p - 1} + C_1 &= \frac{\ln p_k}{p - 2} + C_2
+\end{align*}
+
+So,
+\begin{align*}
+    \ln p_k &= - \frac{2 - p}{1 - p} \ln\left(k + p + 1 - k p\right) + C_3 \\
+    p_k &= C_4 \cdot \left(k + p + 1 - k p\right)^{-\frac{2 - p}{1 - p}}
+\end{align*}
+
+\subsection{The Degree Exponent}
+
+    For $k > 1$, we have \[
+        (1 - p) k \leq k + p + 1 - k p \leq k + 1 \leq 2 k
+    \]
+
+    And \[
+        C_4 \cdot 2^{-\frac{2 - p}{1 - p}} \cdot k^{-\frac{2 - p}{1 - p}} \leq p_k \leq C_4 \cdot (1 - p)^{-\frac{2 - p}{1 - p}} \cdot k^{-\frac{2 - p}{1 - p}}
+    \]
+
+    Therefore,
+    \[
+        p_k \sim k^{-\frac{2 - p}{1 - p}} = k^{-\gamma_\text{in}}
+    \]
+
+    For $\gamma_\text{in} = \frac{2 - p}{1 - p}$.
